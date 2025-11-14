@@ -21,8 +21,8 @@ services:
       - "5679:5678"
     labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.web.rule=Host(`n8n2.int.lflab.org`)"
-        - "traefik.http.routers.web.entrypoints=websecure"
+        - "traefik.http.routers.n8n.rule=Host(`n8n2.int.lflab.org`)"
+        - "traefik.http.routers.n8n.entrypoints=websecure"
     environment:
       - N8N_HOST=n8n2.int.lflab.org
       - N8N_PORT=5678

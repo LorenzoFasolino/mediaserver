@@ -18,20 +18,22 @@ services:
     image: docker.n8n.io/n8nio/n8n
     restart: always
     ports:
-      - "5678:5678"
+      - "5679:5678"
     labels:
         - "traefik.enable=true"
         - "traefik.http.routers.web.rule=Host(`n8n2.int.lflab.org`)"
         - "traefik.http.routers.web.entrypoints=websecure"
     environment:
       - N8N_HOST=n8n2.int.lflab.org
-      - N8N_PORT=5678
+      - N8N_PORT=5679
       - N8N_PROTOCOL=http
       - NODE_ENV=production
       - WEBHOOK_URL=https://n8n2.int.lflab.org/
     volumes:
       - /home/media/configs/n8n:/home/node/.n8n
       - /home/media/configs/n8n/files:/files
+    networks:
+      - home
 
 
 

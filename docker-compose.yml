@@ -23,6 +23,9 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.n8n2.rule=Host(`n8n2.int.lflab.org`)"
         - "traefik.http.routers.n8n2.entrypoints=websecure"
+        - "traefik.http.routers.n8n2.rule=Host(`minchia.lflab.org`) 
+        # && PathPrefix(`/webhook`)"
+        - "traefik.http.routers.n8n2.entrypoints=websecure"
     environment:
       - N8N_HOST=n8n2.int.lflab.org
       - N8N_PORT=5678

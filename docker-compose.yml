@@ -6,7 +6,7 @@ services:
     volumes:
       - ./html:/usr/share/nginx/html
     ports:
-      - "8080:80"
+      - "8089:80"
     networks:
       - homenet
 

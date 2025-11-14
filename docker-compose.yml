@@ -2,6 +2,10 @@ version: '3.8'
 
 services:
   web:
+    labels: 
+        - "traefik.enable=true"
+        - "traefik.http.routers.web.rule=Host(`testt.int.lflab.org`)"
+        - "traefik.http.routers.web.entrypoints=websecure"
     image: nginx:latest
     volumes:
       - ./html:/usr/share/nginx/html

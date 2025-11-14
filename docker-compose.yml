@@ -31,7 +31,7 @@ services:
       - N8N_PORT=5678
       - N8N_PROTOCOL=http
       - NODE_ENV=production
-      - WEBHOOK_URL=https://n8n2.int.lflab.org/
+      - WEBHOOK_URL=https://minchia.lflab.org/
     volumes:
       - /home/media/configs/n8n/.n8n:/home/node/.n8n
       - /home/media/configs/n8n/files:/files

@@ -22,8 +22,8 @@ services:
     labels:
         - "traefik.enable=true"
         - "traefik.http.routers.n8n2.rule=Host(`n8n2.int.lflab.org`)"
-        - "traefik.http.routers.n8n2.entrypoints=websecure"
-        - "traefik.http.routers.n8n2.rule=Host(`minchia.lflab.org`) 
+        - "traefik.http.routers.n8n2-webhook.entrypoints=websecure"
+        - "traefik.http.routers.n8n2-webhook.rule=Host(`minchia.lflab.org`)" 
         # && PathPrefix(`/webhook`)"
         - "traefik.http.routers.n8n2.entrypoints=websecure"
     environment:

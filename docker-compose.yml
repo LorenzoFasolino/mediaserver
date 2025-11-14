@@ -8,6 +8,10 @@ services:
     ports:
       - "8080:80"
     networks:
-      - home
+      - homenet
 
 
+
+networks:
+  homenet:
+    driver: bridge

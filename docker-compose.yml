@@ -12,10 +12,10 @@ services:
     ports:
       - "8089:80"
     networks:
-      - homenet
+      - home
 
 
 
 networks:
-  homenet:
-    driver: bridge
+  home:
+    external: true

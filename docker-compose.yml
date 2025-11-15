@@ -13,7 +13,6 @@ services:
     environment:
       - VPN_SERVICE_PROVIDER=mullvad
       - VPN_TYPE=wireguard
-      - WIREGUARD_CONF=wsg.conf
 
       # Porte che vuoi esporre alla rete "home"
       - VPN_INPUT_PORTS=8080

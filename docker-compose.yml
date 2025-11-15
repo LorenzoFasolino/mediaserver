@@ -26,8 +26,8 @@ services:
   n8n2:
     image: docker.n8n.io/n8nio/n8n
     restart: always
-    ports:
-      - "5679:5678"
+    # ports:
+    #   - "5679:5678"
     labels:
         - "traefik.enable=true"
         - "traefik.http.routers.n8n2.rule=Host(`n8n2.int.lflab.org`)"

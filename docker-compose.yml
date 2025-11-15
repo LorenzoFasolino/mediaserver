@@ -24,8 +24,8 @@ services:
       - VPN_TYPE=wireguard
 
       # Porte che vuoi esporre alla rete "home"
-      - VPN_INPUT_PORTS=5678
-      - ADD_PORTS=5678
+      - VPN_INPUT_PORTS=5679
+      - ADD_PORTS=5679
     
     networks:
       - home

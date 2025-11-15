@@ -1,18 +1,27 @@
 version: '3.8'
 
 services:
-  web:
-    labels: 
-        - "traefik.enable=true"
-        - "traefik.http.routers.web.rule=Host(`testt.int.lflab.org`)"
-        - "traefik.http.routers.web.entrypoints=websecure"
-    image: nginx:latest
+  mullvad-vpn:
+    image: qmcgaw/gluetun
+    container_name: mullvad-vpn
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
     volumes:
-      - ./html:/usr/share/nginx/html
-    ports:
-      - "8089:80"
+      - gluetun_wg:/gluetun/wireguard
+    environment:
+      - VPN_SERVICE_PROVIDER=mullvad
+      - VPN_TYPE=wireguard
+
+      # Porte che vuoi esporre alla rete "home"
+      - VPN_INPUT_PORTS=8080
+      - ADD_PORTS=8080
+    
     networks:
       - home
+
+    restart: unless-stopped
 
   n8n2:
     image: docker.n8n.io/n8nio/n8n
@@ -35,11 +44,14 @@ services:
     volumes:
       - /home/media/configs/n8n/.n8n:/home/node/.n8n
       - /home/media/configs/n8n/files:/files
+    # network_mode: "container:mullvad-vpn"
     networks:
       - home
 
 
-
+volumes:
+  gluetun_wg:
+    external: true
 
 networks:
   home:

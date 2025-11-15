@@ -6,7 +6,7 @@ services:
     container_name: mullvad-vpn
     cap_add:
       - NET_ADMIN
-    command: sleep infinity
+    command: ls /gluetun/wireguard
     devices:
       - /dev/net/tun
     volumes:

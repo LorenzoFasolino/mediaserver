@@ -15,8 +15,8 @@ services:
       - VPN_TYPE=wireguard
 
       # Porte che vuoi esporre alla rete "home"
-      - VPN_INPUT_PORTS=8080
-      - ADD_PORTS=8080
+      - VPN_INPUT_PORTS=5678
+      - ADD_PORTS=5678
     
     networks:
       - home
@@ -44,9 +44,9 @@ services:
     volumes:
       - /home/media/configs/n8n/.n8n:/home/node/.n8n
       - /home/media/configs/n8n/files:/files
-    # network_mode: "container:mullvad-vpn"
-    networks:
-      - home
+    network_mode: "container:mullvad-vpn"
+    # networks:
+    #   - home
 
 
 volumes:

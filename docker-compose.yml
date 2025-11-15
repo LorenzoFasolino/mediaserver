@@ -6,7 +6,7 @@ services:
     container_name: mullvad-vpn
     cap_add:
       - NET_ADMIN
-    command: sh -c "sleep infinity"
+    command: sleep infinity
     devices:
       - /dev/net/tun
     volumes:
